@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import './App.css';
+import {useState} from "react";
+import quotes from './Components/quote-data';
+
+export default function App() {
+  const [bobsCharacter, setBobsCharacter] = useState("");
+  const urlBase = "https://bobsburgers-api.herokuapp.com/characters/"
+  // const bobsUrl = `${urlBase}${inputField}`
+  const [inputField, setInputField] = useState("");
+
+  //   const url = `${urlBase}${bobsCharacter}${event}`;
+const handleSubmit = (event) => {
+event.preventDefault()
+    fetch(urlBase)
+      .then((response) => response.json())
+      .then((data) => setBobsCharacter(data))
+      console.log(inputField)
+      setInputField("");
+}
+  const handleFormChange = (event) => {
+    setInputField(event.target.value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>
+      <h1>Bob's Burgers Project</h1>
+
+      <form onSubmit={handleSubmit}>
+        <label>Character: </label>
+
+        <input
+          type="text"
+          placeholder="ex. Tina Belcher"
+          value={inputField}
+          onChange={handleFormChange}
+        />
+        <input type="submit" value="Submit" />
+
+        </form>
+        <div className="character">
+        <h3>{bobsCharacter.name}</h3>
+        <img className="characterImg" src={bobsCharacter.image} alt={bobsCharacter.name} />
+        <p>{bobsCharacter ? quotes[0].quote : ""}</p>
+     </div>
+
+        </div>
   );
 }
-
-export default App;
