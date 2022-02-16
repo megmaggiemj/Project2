@@ -1,11 +1,11 @@
 
 import './App.css';
 import {useState} from "react";
-import quotes from './Components/quote-data';
+import {tinaQuotes} from './Components/quote-data';
 
 export default function App() {
   const [bobsCharacter, setBobsCharacter] = useState("");
-  const urlBase = "https://bobsburgers-api.herokuapp.com/characters/"
+  const urlBase = "https://bobsburgers-api.herokuapp.com/characters/1"
   // const bobsUrl = `${urlBase}${inputField}`
   const [inputField, setInputField] = useState("");
 
@@ -41,7 +41,7 @@ event.preventDefault()
         <div className="character">
         <h3>{bobsCharacter.name}</h3>
         <img className="characterImg" src={bobsCharacter.image} alt={bobsCharacter.name} />
-        <p>{bobsCharacter ? quotes[0].quote : ""}</p>
+        <p>{bobsCharacter ? tinaQuotes[0] : ""}</p>
      </div>
 
         </div>
