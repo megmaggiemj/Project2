@@ -12,7 +12,7 @@ export const tinaQuotes = [
 export const geneQuotes = [
     "Queen Latifah GIVE ME STRENGTH!",
     "Was it obvious I don't care?",
-    "Ugh! Summer is awful. There/’s too much pressure to enjoy yourself.",
+    "Ugh! Summer is awful. There’s too much pressure to enjoy yourself.",
 ]
 
 export const louiseQuotes = [
@@ -22,7 +22,7 @@ export const louiseQuotes = [
 ]
 
 export const bobQuotes = [
-    "Listen, you're my children and I love you but you're all terrible at what you do here.", 
+    "Listen, you're my children and I love you but you're all terrible at what you do here.",
     "Okay. fine. But I’m gonna complain the whole time."
 ]
 
