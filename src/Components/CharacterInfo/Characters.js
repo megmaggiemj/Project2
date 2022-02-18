@@ -48,9 +48,12 @@ const Character = () => {
           src={bobsCharacter.image}
           alt={bobsCharacter.name}
         />
-      
+
+
+      <div><p>Words of wisdom from Tina Belcher:</p>
         <p>{bobsCharacter ? tinaQuotes[randomTina] : ""}</p>
-      </div>
+        </div>
+        </div>
     </div>
   );
 } else {
