@@ -1,15 +1,19 @@
 
 import React, { useState } from "react";
-// import {tinaQuotes} from "./quoteArray";
+import Dropdown from "../Dropdown/Dropdown";
+// import SelectCharacter from "./ApiConstruct";
+import {tinaQuotes} from "./quoteArray";
 // import {geneQuotes} from "./quoteArray";
 // import {louiseQuotes} from "./quoteArray";
 import { bobQuotes } from "./quoteArray";
 // import {lindaQuotes} from "./quoteArray";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 const Character = () => {
   const [bobsCharacter, setBobsCharacter] = useState("");
-  const urlBase = "https://bobsburgers-api.herokuapp.com/characters/1";
+  const urlBase = "https://bobsburgers-api.herokuapp.com/characters/473";
   const [inputField, setInputField] = useState("");
 
   const handleSubmit = (event) => {
@@ -20,10 +24,14 @@ const Character = () => {
       console.log(inputField)
       setInputField("");
   };
+
+
+
   const handleFormChange = (event) => {
     setInputField(event.target.value);
   }
     return (
+        
 
       <div> 
       <form onSubmit={handleSubmit}>
@@ -41,11 +49,12 @@ const Character = () => {
 
       <div className="characterInfo">
       <h3>{bobsCharacter.name}</h3>
+      <h4>{bobsCharacter.age}</h4>
       <img className="characterImg" src={bobsCharacter.image} alt={bobsCharacter.name} />
-      <p>"{bobsCharacter ? bobQuotes[1] : ""}" -Bob Belcher</p> 
+      <p>{bobsCharacter ? tinaQuotes[1] : ""}</p> 
       </div>
       </div>
-
+      
       )
       };
 
