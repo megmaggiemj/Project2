@@ -1,63 +1,78 @@
-
 import React, { useState } from "react";
 import Dropdown from "../Dropdown/Dropdown";
 // import SelectCharacter from "./ApiConstruct";
-import {tinaQuotes} from "./quoteArray";
+import { tinaQuotes } from "./quoteArray";
 // import {geneQuotes} from "./quoteArray";
 // import {louiseQuotes} from "./quoteArray";
 import { bobQuotes } from "./quoteArray";
 // import {lindaQuotes} from "./quoteArray";
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Character = () => {
+  const randomTina = Math.floor(Math.random() * 5)
   const [bobsCharacter, setBobsCharacter] = useState("");
-  const urlBase = "https://bobsburgers-api.herokuapp.com/characters/473";
+  const urlRandom = Math.floor(Math.random() * 492)
+  const urlBase = `https://bobsburgers-api.herokuapp.com/characters/${urlRandom}`;
+
   const [inputField, setInputField] = useState("");
 
   const handleSubmit = (event) => {
-  event.preventDefault()
+    event.preventDefault();
     fetch(urlBase)
       .then((response) => response.json())
-      .then((data) => setBobsCharacter(data))
-      console.log(inputField)
-      setInputField("");
+      .then((data) => setBobsCharacter(data));
+    console.log(inputField);
+    setInputField("");
   };
-
-
 
   const handleFormChange = (event) => {
     setInputField(event.target.value);
-  }
-    return (
-        
-
-      <div> 
+  };
+  if(bobsCharacter) {
+      return (
+    <div>
       <form onSubmit={handleSubmit}>
-      <label>Character: </label>
+        <label>Character: </label>
 
-      <input
+        <input
+          type="text"
+          placeholder="ex. Tina Belcher"
+          value={inputField}
+          onChange={handleFormChange}
+        />
+        <input type="submit" value="Submit" />
+      </form>
+
+      <div className="characterInfo">
+        <h3>{bobsCharacter.name}</h3>
+        <h4>Character Age: {bobsCharacter.age}</h4>
+        <h4>Voiced by: {bobsCharacter.voicedBy}</h4>
+        <img
+          className="characterImg"
+          src={bobsCharacter.image}
+          alt={bobsCharacter.name}
+        />
+      
+        <p>{bobsCharacter ? tinaQuotes[randomTina] : ""}</p>
+      </div>
+    </div>
+  );
+} else {
+  return(
+    <form onSubmit={handleSubmit}>
+    <label>Character: </label>
+
+    <input
       type="text"
       placeholder="ex. Tina Belcher"
       value={inputField}
       onChange={handleFormChange}
-      />
-      <input type="submit" value="Submit" />
+    />
+    <input type="submit" value="Submit" />
+  </form>
+  )
 
-      </form>
+}
 
-      <div className="characterInfo">
-      <h3>{bobsCharacter.name}</h3>
-      <h4>{bobsCharacter.age}</h4>
-      <img className="characterImg" src={bobsCharacter.image} alt={bobsCharacter.name} />
-      <p>{bobsCharacter ? tinaQuotes[1] : ""}</p> 
-      </div>
-      </div>
-      
-      )
-      };
-
-
-
+};
 export default Character;
