@@ -12,7 +12,6 @@ const Character = () => {
   const urlBase = "https://bobsburgers-api.herokuapp.com/characters/1";
   const [inputField, setInputField] = useState("");
 
-
   const handleSubmit = (event) => {
   event.preventDefault()
     fetch(urlBase)
