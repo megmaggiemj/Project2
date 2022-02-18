@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Dropdown from "../Dropdown/Dropdown";
-// import SelectCharacter from "./ApiConstruct";
+import SelectCharacter from "./ApiConstruct";
 import { tinaQuotes } from "./quoteArray";
-// import {geneQuotes} from "./quoteArray";
-// import {louiseQuotes} from "./quoteArray";
+import {geneQuotes} from "./quoteArray";
+import {louiseQuotes} from "./quoteArray";
 import { bobQuotes } from "./quoteArray";
-// import {lindaQuotes} from "./quoteArray";
+import {lindaQuotes} from "./quoteArray";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Character = () => {
@@ -32,15 +32,11 @@ const Character = () => {
       return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label>Character: </label>
+        <label>Want to know about a random character? </label>
 
-        <input
-          type="text"
-          placeholder="ex. Tina Belcher"
-          value={inputField}
-          onChange={handleFormChange}
-        />
-        <input type="submit" value="Submit" />
+        <div>
+        <input type="submit" value="Click here!" />
+        </div>
       </form>
 
       <div className="characterInfo">
@@ -60,15 +56,11 @@ const Character = () => {
 } else {
   return(
     <form onSubmit={handleSubmit}>
-    <label>Character: </label>
+    <label>Want to know about a random character? </label>
 
-    <input
-      type="text"
-      placeholder="ex. Tina Belcher"
-      value={inputField}
-      onChange={handleFormChange}
-    />
-    <input type="submit" value="Submit" />
+    <div>
+    <input type="submit" value="Click here!" />
+    </div>
   </form>
   )
 

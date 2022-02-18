@@ -16,7 +16,7 @@ export default function App() {
       <nav>
         <NavBar />
       </nav>
-      <h1>Bob's Burgers Project</h1>
+      <h1>Bob's Burgers</h1>
 
       <main>
         <Routes>
